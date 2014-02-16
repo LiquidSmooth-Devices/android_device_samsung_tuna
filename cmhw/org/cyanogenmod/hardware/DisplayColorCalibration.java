@@ -20,19 +20,15 @@ import org.cyanogenmod.hardware.util.FileUtils;
 import java.io.File;
 
 public class DisplayColorCalibration {
-
     private static final String[] FILE_PATH = new String[] {
             "/sys/class/misc/samoled_color/red_multiplier",
             "/sys/class/misc/samoled_color/green_multiplier",
             "/sys/class/misc/samoled_color/blue_multiplier"
     };
 
-    // Align MAX_VALUE with Voodoo Control settings
-    private static final int MAX_VALUE = 2000000000;
-
     public static boolean isSupported() {
-        for (String i : FILE_PATH) {
-            if (!new File(i).exists()) {
+        for (String filePath : FILE_PATH) {
+            if (!new File(filePath).exists()) {
                 return false;
             }
         }
@@ -40,26 +36,29 @@ public class DisplayColorCalibration {
     }
 
     public static int getMaxValue()  {
-        return MAX_VALUE;
+        return 2000000000;  // Real value: 4000000000
     }
+
     public static int getMinValue()  {
         return 0;
     }
+
+    public static int getDefValue()  {
+        return 1000000000;  // Real value: 2000000000
+    }
+
     public static String getCurColors()  {
-        StringBuilder colors = new StringBuilder();
+        StringBuilder values = new StringBuilder();
         for (String filePath : FILE_PATH) {
-            colors.append(FileUtils.readOneLine(filePath)).append(" ");
             values.append(Long.toString(Long.valueOf(
                     FileUtils.readOneLine(filePath)) / 2)).append(" ");
         }
-        return colors.toString();
+        return values.toString();
     }
+
     public static boolean setColors(String colors)  {
-        String[] colorsSplit = colors.split(" ");
+        String[] valuesSplit = colors.split(" ");
         boolean result = true;
-        for (int i = 0; i < 3; i++) {
-            String currentFile = FILE_PATH[i];
-            result &= FileUtils.writeLine(currentFile, colorsSplit[i]);
         for (int i = 0; i < valuesSplit.length; i++) {
             String targetFile = FILE_PATH[i];
             result &= FileUtils.writeLine(targetFile, Long.toString(
