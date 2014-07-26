@@ -271,4 +271,7 @@
     <!-- Enable flashlight -->
     <bool name="config_enableTorch">true</bool>
 
+    <!-- Enable WiFi display support -->
+    <bool name="config_enableWifiDisplay">true</bool>
+
 </resources>
