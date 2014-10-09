@@ -74,6 +74,7 @@ PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/rootdir/ueventd.tuna.rc:root/ueventd.tuna.rc
 
 # Fstab
+PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/rootdir/fstab.tuna:root/fstab.tuna
 
 # GPS
