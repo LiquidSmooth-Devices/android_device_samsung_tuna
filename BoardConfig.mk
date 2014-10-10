@@ -130,3 +130,6 @@ TARGET_RECOVERY_UI_LIB := librecovery_ui_tuna
 BOARD_RECOVERY_SWIPE := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
+
+# Enable ArchiDroid Optimizations
+USE_ARCH_OPTIMIZATIONS=true
