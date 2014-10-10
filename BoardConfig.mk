@@ -48,7 +48,7 @@ BOARD_KERNEL_BASE := 0x80000000
 # Inline kernel building
 TARGET_KERNEL_CONFIG := cyanogenmod_tuna_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/tuna
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.7
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.9-sm
 
 # Fall back to prebuilt kernel if the sources aren't present
 # or inline kernel building is not supported
