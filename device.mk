@@ -121,7 +121,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Gnexus Parts
 PRODUCT_PACKAGES += \
 		GNexusParts \
-		
+
+PRODUCT_COPY_FILES += \
+    device/samsung/tuna/format-system.sh:system/extras/format-system.sh
+	
 # Live Wallpapers
 PRODUCT_PACKAGES += \
 	LiveWallpapers \
